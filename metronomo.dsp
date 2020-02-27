@@ -1,5 +1,5 @@
 import("stdfaust.lib");
-bpm2samp = (60*ma.SR)/t; 
+bpm2samp(t) = (60*ma.SR)/(t); 
 frec = vslider("frequenza[stayl:knov]",1000,1000,5000,1.0);
 beat = bpm2samp (vslider ("tempo[stayl:knov]", 60,32,44,0.1));
 process = ba.pulsen(1,beat) : fi.highpass(128,frec); 
